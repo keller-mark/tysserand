@@ -1,36 +1,51 @@
-[tool.poetry]
+[build-system]
+requires = ["setuptools>=67.0", "wheel>=0.38.4"]
+build-backend = "setuptools.build_meta"
+
+[project]
 name = "tysserand"
-version = "0.5.1"
+version = "0.5.2"
 description = "Fast and accurate spatial networks reconstruction."
 authors = ["Alexis Coullomb <alexis.coullomb.pro@gmail.com>"]
 license = "GNU GPLv3"
 readme = "README.md"
+requires-python = ">=3.8"
 
-[tool.poetry.dependencies]
-python = "3.8*"
-ipykernel = "*"
-matplotlib = "*"
-qtconsole = "*"
-scipy = "*"
-seaborn = "*"
-pathlib = "*"
-scikit-learn = "*"
-scikit-image = "*"
-numpy = "*"
-hdbscan = "*"
-umap-learn = "*"
-dask = {extras = ["complete"], version = "^2021.7.1"}
-opencv-python-headless = "*"
-napari = {extras = ["all"], version = "*"}
+dependencies = [
+  'ipykernel',
+  'matplotlib',
+  'qtconsole',
+  'scipy',
+  'seaborn',
+  'pathlib',
+  'scikit-learn',
+  'scikit-image',
+  'numpy',
+  'hdbscan',
+  'umap-learn',
+  'dask[complete]>=2021.7.1',
+  'opencv-python-headless',
+  'napari[all]'
+]
 
-[tool.poetry.dev-dependencies]
-networkx = "*"
-igraph = "*"
-cairocffi = "*"
-pysal = "*"
-geopandas = "*"
-scanpy = "*"
+[project.optional-dependencies]
+dev = [
+  'build==0.1.0',
+  'pytest>=6.2.4',
+  'loompy>=3.0.6',
+  'coverage>=6.3.2',
+  'flake8==3.8.4',
+  'networkx',
+  'igraph',
+  'cairocffi',
+  'pysal',
+  'geopandas',
+  'scanpy'
+]
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[project.urls]
+repository = "https://github.com/keller-mark/tysserand"
+
+[tool.setuptools]
+packages = ["tysserand"]
+
