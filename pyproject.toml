@@ -6,8 +6,10 @@ build-backend = "setuptools.build_meta"
 name = "tysserand"
 version = "0.5.2"
 description = "Fast and accurate spatial networks reconstruction."
-authors = ["Alexis Coullomb <alexis.coullomb.pro@gmail.com>"]
-license = "GNU GPLv3"
+authors = [
+    { name="Alexis Coullomb", email="alexis.coullomb.pro@gmail.com" }
+]
+license = {file = "LICENSE"}
 readme = "README.md"
 requires-python = ">=3.8"
 
