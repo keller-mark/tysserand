@@ -27,7 +27,6 @@ dependencies = [
   'umap-learn',
   'dask[complete]>=2021.7.1',
   'opencv-python-headless',
-  'napari[all]'
 ]
 
 [project.optional-dependencies]

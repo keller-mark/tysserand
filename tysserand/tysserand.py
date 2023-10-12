@@ -12,7 +12,6 @@ from skimage import morphology, feature, measure, segmentation, filters, color
 from scipy import ndimage as ndi
 from scipy.sparse import csr_matrix
 import cv2 as cv
-import napari
 import dask
 from dask.distributed import Client, LocalCluster
 
@@ -451,7 +450,7 @@ def find_neighbors(masks, i, r=1):
     # create the border in which we'll look at other masks
     kernel = morphology.disk(r)
     dilated = cv.dilate(mask, kernel, iterations=1)
-    dilated = dilated.astype(np.bool)
+    dilated = dilated.astype(bool)
     # detect potential touching masks
     neighbors = np.unique(masks[dilated])
     # discard the initial cell id of interest
@@ -1525,6 +1524,7 @@ def visualize(viewer, img, colormaps=None):
 
 def get_annotation_names(viewer):
     """Detect the names of nodes and edges layers"""
+    import napari
 
     layer_nodes_name = None
     layer_edges_name = None
